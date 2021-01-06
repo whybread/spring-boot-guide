@@ -1,2 +1,2 @@
-# spring-boot-guide
-A Spring-Boot Guide
+# Spring Boot Guide
+A Spring Boot Guide
