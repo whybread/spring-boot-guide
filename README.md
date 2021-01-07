@@ -1,5 +1,5 @@
-# Spring Boot Guide
-A Spring Boot Guide
+# Spring Boot Tutorial
+A Spring Boot Tutorial
 
 
 ## 1. Primary goals are:
