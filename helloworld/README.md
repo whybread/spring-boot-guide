@@ -37,10 +37,12 @@ http://localhost:8080/ will show that your simple **Spring Boot** application wo
 
 > **Congratulations!**  Now you've done to make a simple **Spring Boot** application!
 
-## `@SpringBootApplication` Annotation
+## Using the `@SpringBootApplication` annotation
 
 You can find a `@SpringBootApplication` annotation in your `<your-project-name>Application.java`, and this annotation enables three features. You can replace it with a combination of these three annotations.
-- `@EnableAutoConfiguration`: enable Spring Boot’s auto-configuration mechanism
+- `@EnableAutoConfiguration`: enable **Spring Boot**’s auto-configuration mechanism
 - `@ComponentScan`: enable `@Component` scan on the package where the application is located (see the best practices)
 - `@Configuration`: allow to register extra beans in the context or import additional configuration classes
+
+For more information, visit [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/2.4.1/reference/htmlsingle/#using-boot-using-springbootapplication-annotation)
 
