@@ -1,0 +1,19 @@
+FILE - PID[16098] 2021-01-08 21:39:31 - Property 'spring.profiles' imported from location 'class path resource [application.yml]' is invalid and should be replaced with 'spring.config.activate.on-profile' [origin: class path resource [application.yml] - 9:13]
+FILE - PID[16098] 2021-01-08 21:39:34 - Index DEBUG
+FILE - PID[16098] 2021-01-08 21:39:34 - Index INFO
+FILE - PID[16098] 2021-01-08 21:39:34 - Index WARN
+FILE - PID[16098] 2021-01-08 21:39:34 - Index ERROR
+FILE - PID[16098] 2021-01-08 21:39:36 - Index DEBUG
+FILE - PID[16098] 2021-01-08 21:39:36 - Index INFO
+FILE - PID[16098] 2021-01-08 21:39:36 - Index WARN
+FILE - PID[16098] 2021-01-08 21:39:36 - Index ERROR
+FILE - PID[16098] 2021-01-08 21:44:34 - Index DEBUG
+FILE - PID[16098] 2021-01-08 21:44:34 - Index INFO
+FILE - PID[16098] 2021-01-08 21:44:34 - Index WARN
+FILE - PID[16098] 2021-01-08 21:44:34 - Index ERROR
+FILE - PID[16098] 2021-01-08 21:44:38 - Verified INFO
+FILE - PID[16098] 2021-01-08 21:44:38 - Verified WARN
+FILE - PID[16098] 2021-01-08 21:44:38 - Verified ERROR
+FILE - PID[16098] 2021-01-08 21:44:43 - Safe INFO
+FILE - PID[16098] 2021-01-08 21:44:43 - Safe WARN
+FILE - PID[16098] 2021-01-08 21:44:43 - Safe ERROR

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+        Spring Boot provides a number of logback configurations that be included from your own configuration.
+        These includes are designed to allow certain common Spring Boot conventions to be re-applied.
+        
+        I recommend you to read the link below (especially section 9.8.1 which is very short).
+        For more information: https://docs.spring.io/spring-boot/docs/2.4.1/reference/htmlsingle/#howto-configure-logback-for-logging
+    -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <!-- The <springProperty> tag lets you expose properties from the Spring Environment for use within Logback. -->
+    <springProperty name="SPECIAL_PACKAGE" source="logging.variable.special_package" defaultValue="com.whybread.tutorial.logging.controllers2"/>
+
+    <!-- You can make your own appender -->
+    <appender name="MY_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- ${PID} is provided: refer to the link above. -->
+            
+            <!-- You better study more to get friendly to the pattern. I recommend you to read the official document someday.-->
+            <!-- About the conversion words: http://logback.qos.ch/manual/layouts.html#conversionWord -->
+            <!-- About coloring: http://logback.qos.ch/manual/layouts.html#coloring -->
+            <pattern>
+                <!-- You can use springProperty to manage the pattern in application.yml (or application.properties). -->
+                PID[${PID}] %clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+            </pattern>
+        </encoder>
+    </appender>
+    
+    <!-- The <springProfile> tag lets you optionally include or exclude sections of configuration based on the active Spring profiles. -->
+    <springProfile name="local">
+        <!-- configuration to be enabled when the "local" profile is active -->
+
+        <!-- When you add a logger, the logging level is set to DEBUG as default.-->
+        <root level="INFO">
+            <appender-ref ref="FILE" />
+            <appender-ref ref="CONSOLE" />
+        </root>
+
+        <!-- Usage of <springProperty> tag. -->
+        <logger name="${SPECIAL_PACKAGE}" level="TRACE">
+            <appender-ref ref="MY_CONSOLE" />
+        </logger>
+
+    </springProfile>
+
+    <springProfile name="dev | staging">
+        <!-- configuration to be enabled when the "dev" or "staging" profiles are active -->
+    </springProfile>
+
+    <springProfile name="!production">
+        <!-- configuration to be enabled when the "production" profile is not active -->
+    </springProfile>
+    
+
+</configuration>
