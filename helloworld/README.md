@@ -1,6 +1,6 @@
 # Chapter 01: Hello World
 
-In this chapter, we will study how to make a simple web server prints 'hello world' using **Spring Boot**.
+In this chapter, we will study how to make a simple web application prints 'hello world' using **Spring Boot**.
 
 ## Make a new Spring Boot project
 
