@@ -30,7 +30,9 @@ logging:
   # Your logging configuration file can also make use of System properties that the 'LoggingSystem' takes care of creating for you, for instance, ${PID}
   # Refer to the link: https://docs.spring.io/spring-boot/docs/2.4.1/reference/htmlsingle/#howto-configure-logback-for-logging
   pattern:
+    # logging.pattern.console default: %clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
     console: "CONSOLE - PID[${PID}] %d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    # logging.pattern.file default: %d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
     file: "FILE - PID[${PID}] %d{yyyy-MM-dd HH:mm:ss} - %msg%n"
 
   # As 'org/springframework/boot/logging/logback/file-appender.xml' adds a 'RollingFileAppender' for you, you can easily manage the config here.
