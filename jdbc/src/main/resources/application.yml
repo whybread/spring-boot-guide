@@ -1,0 +1,30 @@
+#Spring profile setup and common figuration
+spring:
+  profiles:
+    active: local
+
+---
+#SPRING PROFILE: LOCAL
+server:
+  port: 8080
+
+spring:
+  profiles: local
+
+  # Database Configuration
+  datasource:
+    db-local-1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db-local1?serverTimezone=UTC&characterEncoding=UTF-8
+      username: local
+      password: local1234
+
+    db-local-2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db-local2?serverTimezone=UTC&characterEncoding=UTF-8
+      username: local
+      password: local1234
+
+# mapper xml files locaion
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
