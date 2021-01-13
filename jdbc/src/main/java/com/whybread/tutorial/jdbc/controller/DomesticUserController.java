@@ -17,9 +17,13 @@ public class DomesticUserController {
   @Autowired
   private DomesticUserService domesticUserService;
 
+  /*
+   * The controller returns a simple List object received from DomesticUserService.
+   */
   @RequestMapping("")
   public List<DomesticUserDto> users(@RequestParam(value = "country", defaultValue = "") String country)
       throws Exception {
+
     List<DomesticUserDto> userList = domesticUserService.selectUsersByCountry(country);
 
     return userList;

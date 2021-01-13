@@ -36,9 +36,8 @@ public class Local2DataConfiguration {
       ApplicationContext applicationContext) throws Exception {
     SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
     sqlSessionFactoryBean.setDataSource(local2DataSource);
-    sqlSessionFactoryBean
-        .setTypeAliasesPackage("com.whybread.tutorial.jdbc.data.vo, com.whybread.tutorial.jdbc.data.dto");
-    sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mapper/local2/**/*.xml"));
+    sqlSessionFactoryBean.setTypeAliasesPackage("com.whybread.tutorial.jdbc.data.vo, com.whybread.tutorial.jdbc.data.dto");
+    sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mapper/db-local-2/**/*.xml"));
     return sqlSessionFactoryBean.getObject();
   }
 

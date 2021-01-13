@@ -14,6 +14,7 @@ public class DomesticUserService {
   @Autowired
   public DomesticUserDao domesticUserDao;
 
+  // A simple wrapper method of DomesticUserDao.selectUsers(DomesticUserDto param)
   public List<DomesticUserDto> selectUsersByCountry(String country) throws Exception {
     final DomesticUserDto param = new DomesticUserDto(0, null, country);
 
