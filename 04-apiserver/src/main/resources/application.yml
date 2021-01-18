@@ -1,0 +1,12 @@
+#Spring profile setup and global configuration
+spring:
+  profiles:
+    active: local
+
+---
+#SPRING PROFILE: LOCAL
+server:
+  port: 8888
+
+spring:
+  profiles: local

@@ -1,0 +1,28 @@
+#Spring profile setup and global configuration
+spring:
+  profiles:
+    active: local
+
+---
+#SPRING PROFILE: LOCAL
+server:
+  port: 8080
+
+spring:
+  profiles: local
+
+  # The properties prefix is explicitly stated making DataSourceProperties and DataSource in 'com.whybread.tutorial.jdbc.data.config'.
+  # So It doesn't have to be under 'spring.datasource.db-name'.
+  # For example, 'my-application.my-db-name.no-meaning' has no problem.
+  datasource:
+    db-local-1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db-local-1?serverTimezone=UTC&characterEncoding=UTF-8
+      username: local
+      password: local1234
+
+    db-local-2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db-local-2?serverTimezone=UTC&characterEncoding=UTF-8
+      username: local
+      password: local1234

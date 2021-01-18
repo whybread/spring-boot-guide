@@ -1,0 +1,53 @@
+#Spring profile setup and common figuration
+spring:
+  profiles:
+    active: local
+
+---
+#SPRING PROFILE: LOCAL
+spring:
+  profiles: local
+
+#Logging Configuration
+logging:
+  # By default, Spring Boot picks up the native configuration from its default location for the system (such as classpath:logback.xml for Logback).
+  config: classpath:logback-spring.xml
+
+  # Spring Boot allows you to define logging groups in your Spring Environment, which share a logging level.
+  group:
+    # You can make your own group such as 'verified' and 'your-own-group-name'
+    verified: "com.whybread.tutorial.logging.controllers2, com.whybread.tutorial.logging.controllers3"
+    unverified: "com.whybread.tutorial.logging.controllers1"
+
+  # Spring Configurations override the logging config file (which is located at logging.config).
+  # Even if you added a logger to root with INFO level, the logger would run with WARN level.
+  # So you better not to specify logger level at your logging configuration file to make no confuse.
+  level:
+    root: WARN
+    verified: INFO
+    unverified: DEBUG
+
+  # Your logging configuration file can also make use of System properties that the 'LoggingSystem' takes care of creating for you, for instance, ${PID}
+  # Refer to the link: https://docs.spring.io/spring-boot/docs/2.4.1/reference/htmlsingle/#howto-configure-logback-for-logging
+  pattern:
+    # logging.pattern.console default: %clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+    console: "CONSOLE - PID[${PID}] %d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    # logging.pattern.file default: %d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+    file: "FILE - PID[${PID}] %d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+  # As 'org/springframework/boot/logging/logback/file-appender.xml' adds a 'RollingFileAppender' for you, you can easily manage the config here.
+  # Spring Boot Documentation about File Rotation: https://docs.spring.io/spring-boot/docs/2.4.1/reference/htmlsingle/#boot-features-logging-file-rotation
+  logback:
+    rollingpolicy:
+      file-name-pattern: "logs/myapplication-%d{yyyyMMdd}-%i.log"
+      max-file-size: 5KB
+
+  # When you don't declare'logging.file.name', your logs will appear only after the file-size grows beyond'logging.loback.rollingpolicy.max-file-size'.
+  # However, by adding this property, your logs will immediately appear to this file first, until the size is exceeded so the contents are moved to next rolled file.
+  file:
+    name: logs/myapplication.log
+
+  # Custom property named 'variable' (you can use your own name) to be used in logback config.
+  # Spring Boot doesn't do anything with this except they hand this property over to the logging config when they require.
+  variable:
+    special_package: com.whybread.tutorial.logging.controllers1

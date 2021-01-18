@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- With this file, MyBatis makes an implementation of DomesticUserDao interface, which is written as a namespace below.-->
+<mapper namespace="com.whybread.tutorial.jdbc.data.dao.domesticuser.DomesticUserDao">
+ 
+    <!-- Specific information to implement methods defined in the namespace.  -->
+    <select id="selectUsers" parameterType="DomesticUserDto" resultType="DomesticUserDto">
+        SELECT `seq`, `name`, `country`
+        FROM `domestic-users`
+        <if test='country != null and country != ""'>
+          WHERE `country` = #{country}
+        </if>
+    </select>
+ 
+</mapper>
