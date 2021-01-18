@@ -1,4 +1,3 @@
-
 # Chapter 05: API Client
 
 In this chapter, we will study how to make a **Spring Boot** application that can use other APIs through HTTP request with [`WebClient`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.html), which is strongly recommend to be used instead of `RestTemplate`.

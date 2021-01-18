@@ -1,4 +1,3 @@
-
 # Chapter 03: JDBC
 
 In this chapter, we will study how to communicate with your **Database** in a **Spring Boot** application, especially using **MyBatis**.

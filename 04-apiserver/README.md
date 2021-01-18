@@ -1,6 +1,3 @@
-
-
-
 # Chapter 04: API Server
 
 In this chapter, we will study how to make a **Spring Boot** application providing a simple API.
