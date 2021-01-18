@@ -9,13 +9,13 @@ Focus on how to modify the configurations of [`DataSource`](https://docs.oracle.
 
 As there are a lot of materials to set up a database, so I will not explain how to do it. (However, I got a good example for Korean: [Docker Mysql 이미지로 DB 연동하기](https://devpouch.tistory.com/102))
 
-> Note: The source codes are made under the assumption that your database is open at `localhost:3306`. So if you need, you can modify the url, which is located in [`application.yml`](https://github.com/whybread/spring-boot-tutorial/blob/main/jdbc/src/main/resources/application.yml)
+> Note: The source codes are made under the assumption that your database is open at `localhost:3306`. So if you need, you can modify the url, which is located in [`application.yml`](./src/main/resources/application.yml)
 
 In this project, it is assumed that you're going to use 2 databases, which are `db-local-1` with `domestic-users` table and `db-local-2` with `foreign-users` table. The other properties including `url` and `username` are all stated under the `application.yml`'s `spring.datasource` properties.
 
-Also you can refer to [`domestic-user-mapper.xml`](https://github.com/whybread/spring-boot-tutorial/blob/main/jdbc/src/main/resources/mapper/db-local-1/domestic-user-mapper.xml) and [`foreign-user-mapper.xml`](https://github.com/whybread/spring-boot-tutorial/blob/main/jdbc/src/main/resources/mapper/db-local-2/foreign-user-mapper.xml) to see the queries.
+Also you can refer to [`domestic-user-mapper.xml`](./src/main/resources/mapper/db-local-1/domestic-user-mapper.xml) and [`foreign-user-mapper.xml`](./src/main/resources/mapper/db-local-2/foreign-user-mapper.xml) to see the queries.
 
-To generate a table properly matched with the DTO in the source, I provide a `.sql` file for you: [`table-generator-domestic-user.sql`](https://github.com/whybread/spring-boot-tutorial/blob/main/jdbc/table-generator-domestic-user.sql) and [`table-generator-foreign-user.sql`](https://github.com/whybread/spring-boot-tutorial/blob/main/jdbc/table-generator-foreign-user.sql). Please use the first one in the `db-local-1`, and the other in `db-local-2`.
+To generate a table properly matched with the DTO in the source, I provide a `.sql` file for you: [`table-generator-domestic-user.sql`](./table-generator-domestic-user.sql) and [`table-generator-foreign-user.sql`](./table-generator-foreign-user.sql). Please use the first one in the `db-local-1`, and the other in `db-local-2`.
 > You can use the `.sql` file with the command `mysql> source file-name.sql` in your database.
 
 ## Make a new Spring Boot project
@@ -24,9 +24,9 @@ Make a new maven project using  [**Spring Initializr**](https://start.spring.io/
 
 Add  `spring-boot-starter-web`,  `lombok`, `mybatis-spring-boot-starter`and  `mysql-connector-java`to the dependencies just as below.
 
-![image01](https://github.com/whybread/spring-boot-tutorial/raw/main/jdbc/image01.png)
+![image01](./image01.png)
 
-You can also refer to the [`pom.xml`](https://github.com/whybread/spring-boot-tutorial/blob/main/jdbc/pom.xml).
+You can also refer to the [`pom.xml`](./pom.xml).
 
 ## WHAT TO DO
 It is a very simple procedure that you can follow to understand what this project has done.
@@ -37,7 +37,7 @@ First of all, go and read the properties in `application.yml`. There are almost 
 
 
 ### 2. Read `mapper.xml`
-Then you can read mappers that are located under [`src/main/resources/mapper`](https://github.com/whybread/spring-boot-tutorial/tree/main/jdbc/src/main/resources/mapper) directory.
+Then you can read mappers that are located under [`src/main/resources/mapper`](./src/main/resources/mapper) directory.
 It would help you to understand the structure of tables you should use and queries to do.
 
 ### 3. Read `.java` source codes

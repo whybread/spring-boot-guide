@@ -8,7 +8,7 @@ Make a new maven project using [**Spring Initializr**](https://start.spring.io/)
 
 ![image01](./image01.png)
 
-You can also refer to the [`pom.xml`](https://github.com/whybread/spring-boot-tutorial/blob/main/logging/pom.xml).
+You can also refer to the [`pom.xml`](./pom.xml).
 
 If you want to ignore log file in your **git repository**, you can add this fragment inside your `.gitignore` file.
 
@@ -35,5 +35,5 @@ Visit them: http://localhost:8080/, http://localhost:8080/verified, and http://l
 
 Whenever you visit your web application, you can see the logs displayed in your console with default logging level (INFO).
 
-However, you might need to customize the logging for your project. It would be easy to study with examples. If so, look up the files: [`src/main/resources/application.yml`](https://github.com/whybread/spring-boot-tutorial/blob/main/logging/src/main/resources/application.yml) (read it first) and [src/main/resources/logback-spring.xml](https://github.com/whybread/spring-boot-tutorial/blob/main/logging/src/main/resources/logback-spring.xml). A lot of information to help your understanding are written in comments.
+However, you might need to customize the logging for your project. It would be easy to study with examples. If so, look up the files: [`src/main/resources/application.yml`](./src/main/resources/application.yml) (read it first) and [src/main/resources/logback-spring.xml](./src/main/resources/logback-spring.xml). A lot of information to help your understanding are written in comments.
 
