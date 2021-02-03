@@ -1,0 +1,33 @@
+# Spring profile setup and global configuration
+spring:
+  profiles:
+    active: local
+
+---
+# SPRING PROFILE: LOCAL
+
+server:
+  port: 8080
+
+spring:
+  profiles: local
+
+  jpa:
+    # https://hakurei.tistory.com/201
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database: mysql
+    # https://goddaehee.tistory.com/209
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db-bakery?serverTimezone=UTC&characterEncoding=UTF-8
+    username: whybread
+    password: whybread1234
