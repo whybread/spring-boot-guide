@@ -50,8 +50,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
   UserService userService;
-  @Autowired
-  PasswordEncoder passwordEncoder;
 
   
   @Bean
@@ -122,7 +120,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //   .withUser("anonymousUser").password(passwordEncoder.encode("anonymousUser")).roles("USER");
 
     // This is needed for Spring Security's provided authentication.
-    auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
+    auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
   }
 
   /*
