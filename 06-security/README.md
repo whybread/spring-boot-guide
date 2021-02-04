@@ -95,8 +95,8 @@ For details, please read the source codes with comments. References are also in 
 ### 1. JPA
 To manage persistence in java code easily, two classes are used for JPA. Just a simple `Entity` class and a `Repository` class.
 
-- `com.whybread.tutorial.security.entity.UserEntity`
-- `com.whybread.tutorial.security.entity.UserRepository`
+- [`com.whybread.tutorial.security.entity.UserEntity`](./src/main/java/com/whybread/tutorial/security/entity/UserEntity.java)
+- [`com.whybread.tutorial.security.repository.UserRepository`](./src/main/java/com/whybread/tutorial/security/repository/UserRepository.java)
 
 ## 2. Spring Security (Authentication & Authorization)
 First of all, `WebSecurityConfig` is a `@Configuration` annotated class for Spring Security configuration. It mainly deals with HTTP authentication and authorization. Also, Spring Security based login is covered.
@@ -105,17 +105,19 @@ For the Spring Security authentication, we must implement `UserDetialsService` i
 
 `AuthenticationService` is used for method level authorization. With a `@PreAuthorize` annotation, you can use your own condition to authorize the user when a method is invoked.
 
-- `com.whybread.tutorial.security.config.WebSecurityConfig`
-- `com.whybread.tutorial.security.service.UserService`
-- `com.whybread.tutorial.security.service.AuthenticationService`
+- [`com.whybread.tutorial.security.config.WebSecurityConfig`](./src/main/java/com/whybread/tutorial/security/config/WebSecurityConfig.java)
+- [`com.whybread.tutorial.security.service.UserService`](./src/main/java/com/whybread/tutorial/security/service/UserService.java)
+- [`com.whybread.tutorial.security.service.AuthenticationService`](./src/main/java/com/whybread/tutorial/security/service/AuthenticationService.java)
 
 ## 3. Request Mapping (SpEL)
 I wanted to give users their own page just like Github. To do that, `UserController` class leveraged `@RequestMapping` annotation's strong `SpEL` support.
-`com.whybread.tutorial.security.controller.UserController`
+
+- [`com.whybread.tutorial.security.controller.UserController`](./src/main/java/com/whybread/tutorial/security/controller/UserController.java)
 
 ## 4. Static resources
 We can use `WebMvcConfig` class to map URLs to your own resource location.
-`com.whybread.tutorial.security.config.WebMvcConfig`
+
+- [`com.whybread.tutorial.security.config.WebMvcConfig`](./src/main/java/com/whybread/tutorial/security/config/WebMvcConfig.java)
 
 ## Etc
 
@@ -125,13 +127,15 @@ There are a few HTML files in [`/src/main/resources/templates`](./src/main/resou
 ### URLs
 As the application doesn't serve a well-made kind view, you should know some URLs to test it.
 
-`/`: Index page
-`/index`: Redirects to index page.
-`/login`: Login page, redirects to index page if already logged in.
-`/logout`: Logout page, redirects to index page after logout.
+- `/`: Index page
+- `/index`: Redirects to index page.
+- `/login`: Login page, redirects to index page if already logged in.
+- `/logout`: Logout page, redirects to index page after logout.
 
-`/admin`: Admin page that users can only access with a role `ROLE_ADMIN`.
-`/public`:All public resources would be located under here. (e.x. `public/css/style.css`)
 
-`/test`:  A user page of the user '`test`'. Open to all users.
-`/test/settings`: A user setting page of the user '`test`'. Open to the user '`test`' only (and users with a role `ROLE_ADMIN`).
+- `/admin`: Admin page that users can only access with a role `ROLE_ADMIN`.
+- `/public`:All public resources would be located under here. (e.x. `public/css/style.css`)
+
+
+- `/test`:  A user page of the user '`test`'. Open to all users.
+- `/test/settings`: A user setting page of the user '`test`'. Open to the user '`test`' only (and users with a role `ROLE_ADMIN`).
