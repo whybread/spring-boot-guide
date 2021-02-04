@@ -12,14 +12,18 @@ server:
 spring:
   profiles: local
 
+  # References
+  #     [Reimu's Development Blog :: [Spring Data Jpa] TableName UpperCase missing table 발생 시 처리]
+  #     (https://hakurei.tistory.com/201)
+  #
+  #     [갓대희의 작은공간 :: [스프링부트 (7)] Spring Boot JPA(1) - 시작 및 기본 설정]
+  #     (https://goddaehee.tistory.com/209)
   jpa:
-    # https://hakurei.tistory.com/201
     hibernate:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     database: mysql
-    # https://goddaehee.tistory.com/209
     properties:
       hibernate:
         show_sql: true
@@ -28,6 +32,6 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db-bakery?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/db_bakery?serverTimezone=UTC&characterEncoding=UTF-8
     username: whybread
     password: whybread1234

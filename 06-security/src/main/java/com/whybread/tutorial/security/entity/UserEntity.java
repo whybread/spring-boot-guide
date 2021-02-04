@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,6 +30,15 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
+/*
+ * `@DynamicInsert`, `@DynamicUpdate` annotations are used to exclude `null` fields to save to DB.
+ * 
+ * Reference
+ *    [jpa insert 시 default 값 적용]
+ *    (https://dotoridev.tistory.com/6)
+ */
+@DynamicInsert
+@DynamicUpdate
 @Entity(name = "USER_TB")
 public class UserEntity implements UserDetails {
 
@@ -38,30 +49,30 @@ public class UserEntity implements UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id")
+  @Column(name = "ID")
   private Long id;
-  @Column(name = "username")
+  @Column(name = "USERNAME")
   private String username;
-  @Column(name = "email")
+  @Column(name = "EMAIL")
   private String email;
-  @Column(name = "password_encrypted")
-  private String passwordEncrypted;
-  @Column(name = "role")
+  @Column(name = "PASSWORD_HASHED")
+  private String passwordHashed;
+  @Column(name = "ROLE")
   private String role;
-  @Column(name = "is_deleted")
+  @Column(name = "IS_DELETED")
   private boolean isDeleted;
-  @Column(name = "created_datetime")
+  @Column(name = "CREATED_DATETIME")
   private String created_datetime;
-  @Column(name = "updated_datetime")
+  @Column(name = "UPDATED_DATETIME")
   private String updated_datetime;
-  @Column(name = "description")
+  @Column(name = "DESCRIPTION")
   private String description;
 
   @Builder
-  public UserEntity(String username, String email, String passwordEncrypted, String role) {
+  public UserEntity(String username, String email, String passwordHashed, String role) {
     this.username = username;
     this.email = email;
-    this.passwordEncrypted = passwordEncrypted;
+    this.passwordHashed = passwordHashed;
     this.role = role;
   }
 
@@ -81,7 +92,7 @@ public class UserEntity implements UserDetails {
 
   @Override
   public String getPassword() {
-    return passwordEncrypted;
+    return passwordHashed;
   }
 
   @Override

@@ -133,7 +133,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
    *    [Redirect to the Previous URL After Login with Spring Security | Baeldung]
    *    (https://www.baeldung.com/spring-security-redirect-login) 
    */
-  public class RefererAuthenticationSuccessHandler
+  private class RefererAuthenticationSuccessHandler
     extends SavedRequestAwareAuthenticationSuccessHandler
     implements AuthenticationSuccessHandler {
 

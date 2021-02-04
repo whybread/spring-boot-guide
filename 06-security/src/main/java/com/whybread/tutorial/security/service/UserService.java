@@ -51,7 +51,7 @@ public class UserService implements UserDetailsService {
     UserEntity userEntity = UserEntity.builder()
       .username(userDto.getUsername())
       .email(userDto.getEmail())
-      .passwordEncrypted(passwordEncoder.encode(userDto.getPassword()))
+      .passwordHashed(passwordEncoder.encode(userDto.getPassword()))
       .role("ROLE_USER")
       .build();
 
@@ -95,7 +95,7 @@ public class UserService implements UserDetailsService {
     if( userEntity == null ){
       log.info("[Invalid RemoveUser]Invalid username or password: Accounts not found.");
       return false;
-    }else if( !passwordEncoder.matches(userDto.getPassword(), userEntity.getPasswordEncrypted()) ) {
+    }else if( !passwordEncoder.matches(userDto.getPassword(), userEntity.getPasswordHashed()) ) {
       log.info("[Invalid RemoveUser]Invalid username or password: Accounts not found.");
       return false;
     }else if( userEntity.isDeleted() ) {
@@ -107,7 +107,7 @@ public class UserService implements UserDetailsService {
     String description = "Removed user: Username(" + userEntity.getUsername() + "), Email(" + userEntity.getEmail() + ") with Role(" + userEntity.getRole() + ").";
     userEntity.setUsername(null);
     userEntity.setEmail(null);
-    userEntity.setPasswordEncrypted(null);
+    userEntity.setPasswordHashed(null);
     userEntity.setRole(null);
     userEntity.setDescription(description);
     userEntity.setDeleted(true);
