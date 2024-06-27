@@ -98,7 +98,7 @@ To manage persistence in java code easily, two classes are used for JPA. Just a 
 - [`com.whybread.tutorial.security.entity.UserEntity`](./src/main/java/com/whybread/tutorial/security/entity/UserEntity.java)
 - [`com.whybread.tutorial.security.repository.UserRepository`](./src/main/java/com/whybread/tutorial/security/repository/UserRepository.java)
 
-## 2. Spring Security (Authentication & Authorization)
+### 2. Spring Security (Authentication & Authorization)
 First of all, `WebSecurityConfig` is a `@Configuration` annotated class for Spring Security configuration. It mainly deals with HTTP authentication and authorization. Also, Spring Security based login is covered.
 
 For the Spring Security authentication, we must implement `UserDetialsService` interface, and `UserService` is my custom implementation. It implements `loadUserByUsername(String username)` method that returns a `@UserDetails` object. There are also a few `Service` methods.
@@ -109,12 +109,12 @@ For the Spring Security authentication, we must implement `UserDetialsService` i
 - [`com.whybread.tutorial.security.service.UserService`](./src/main/java/com/whybread/tutorial/security/service/UserService.java)
 - [`com.whybread.tutorial.security.service.AuthenticationService`](./src/main/java/com/whybread/tutorial/security/service/AuthenticationService.java)
 
-## 3. Request Mapping (SpEL)
+### 3. Request Mapping (SpEL)
 I wanted to give users their own page just like Github. To do that, `UserController` class leveraged `@RequestMapping` annotation's strong `SpEL` support.
 
 - [`com.whybread.tutorial.security.controller.UserController`](./src/main/java/com/whybread/tutorial/security/controller/UserController.java)
 
-## 4. Static resources
+### 4. Static resources
 We can use `WebMvcConfig` class to map URLs to your own resource location.
 
 - [`com.whybread.tutorial.security.config.WebMvcConfig`](./src/main/java/com/whybread/tutorial/security/config/WebMvcConfig.java)
